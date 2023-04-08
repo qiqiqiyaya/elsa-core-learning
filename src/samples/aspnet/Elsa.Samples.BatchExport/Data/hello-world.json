@@ -1,0 +1,153 @@
+{
+  "$id": "1",
+  "definitionId": "2c3cacf3246e447b934e5cefe3ae317a",
+  "versionId": "f30ea8f818ba487188fd94686533f50f",
+  "name": "HelloWorld",
+  "displayName": "Hello World",
+  "version": 1,
+  "variables": {
+    "$id": "2",
+    "data": {}
+  },
+  "customAttributes": {
+    "$id": "3",
+    "data": {}
+  },
+  "isSingleton": false,
+  "persistenceBehavior": "WorkflowBurst",
+  "deleteCompletedInstances": false,
+  "isPublished": true,
+  "isLatest": true,
+  "createdAt": "2022-11-03T02:56:13.8989839Z",
+  "activities": [
+    {
+      "$id": "4",
+      "activityId": "c8296e78-648e-43ca-8eea-4dcd6db7a5aa",
+      "type": "HttpEndpoint",
+      "displayName": "HTTP Endpoint",
+      "persistWorkflow": false,
+      "loadWorkflowContext": false,
+      "saveWorkflowContext": false,
+      "properties": [
+        {
+          "$id": "5",
+          "name": "Path",
+          "expressions": {
+            "$id": "6",
+            "Literal": "/hello-world"
+          }
+        },
+        {
+          "$id": "7",
+          "name": "Methods",
+          "expressions": {
+            "$id": "8",
+            "Json": "[\"GET\"]"
+          }
+        },
+        {
+          "$id": "9",
+          "name": "ReadContent",
+          "expressions": {
+            "$id": "10"
+          }
+        },
+        {
+          "$id": "11",
+          "name": "TargetType",
+          "expressions": {
+            "$id": "12"
+          }
+        },
+        {
+          "$id": "13",
+          "name": "Schema",
+          "syntax": "Literal",
+          "expressions": {
+            "$id": "14",
+            "Literal": ""
+          }
+        },
+        {
+          "$id": "15",
+          "name": "Authorize",
+          "expressions": {
+            "$id": "16"
+          }
+        },
+        {
+          "$id": "17",
+          "name": "Policy",
+          "expressions": {
+            "$id": "18"
+          }
+        }
+      ],
+      "propertyStorageProviders": {
+        "$id": "19"
+      }
+    },
+    {
+      "$id": "20",
+      "activityId": "8ede42f6-09dd-4b30-928b-cc6cd1c1c4eb",
+      "type": "WriteHttpResponse",
+      "displayName": "HTTP Response",
+      "persistWorkflow": false,
+      "loadWorkflowContext": false,
+      "saveWorkflowContext": false,
+      "properties": [
+        {
+          "$id": "21",
+          "name": "Content",
+          "expressions": {
+            "$id": "22",
+            "Literal": "<h1>Hello World!</h1>"
+          }
+        },
+        {
+          "$id": "23",
+          "name": "ContentType",
+          "expressions": {
+            "$id": "24",
+            "Literal": "text/html"
+          }
+        },
+        {
+          "$id": "25",
+          "name": "StatusCode",
+          "expressions": {
+            "$id": "26",
+            "Literal": "OK"
+          }
+        },
+        {
+          "$id": "27",
+          "name": "CharSet",
+          "expressions": {
+            "$id": "28",
+            "Literal": ""
+          }
+        },
+        {
+          "$id": "29",
+          "name": "ResponseHeaders",
+          "expressions": {
+            "$id": "30"
+          }
+        }
+      ],
+      "propertyStorageProviders": {
+        "$id": "31"
+      }
+    }
+  ],
+  "connections": [
+    {
+      "$id": "32",
+      "sourceActivityId": "c8296e78-648e-43ca-8eea-4dcd6db7a5aa",
+      "targetActivityId": "8ede42f6-09dd-4b30-928b-cc6cd1c1c4eb",
+      "outcome": "Done"
+    }
+  ],
+  "id": "f30ea8f818ba487188fd94686533f50f"
+}
