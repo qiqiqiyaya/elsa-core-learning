@@ -5,6 +5,9 @@ using Elsa.Persistence.Specifications.WorkflowDefinitions;
 using Elsa.Serialization;
 using Humanizer;
 using System.IO.Compression;
+using System.Net.Mime;
+using Microsoft.Net.Http.Headers;
+using Microsoft.Extensions.FileProviders.Physical;
 
 namespace Elsa.Samples.BatchExport
 {
@@ -23,7 +26,7 @@ namespace Elsa.Samples.BatchExport
             _contentSerializer = contentSerializer;
         }
 
-        public async Task ExportAllAsync()
+        public async Task ExportAllAsync(HttpContext context)
         {
             var specification = GetSpecification(null, VersionOptions.Latest)
                 .And(new TenantSpecification<WorkflowDefinition>(null));
@@ -60,7 +63,10 @@ namespace Elsa.Samples.BatchExport
                 await File.WriteAllTextAsync(jsonFileDirectory + "\\" + fileName, json);
             }
 
+            var zip = basePath + directory + ".zip";
             ZipFile.CreateFromDirectory(jsonFileDirectory, basePath + directory + ".zip");
+
+            await context.Response.SendFileAsync(new PhysicalFileInfo(new FileInfo(zip)));
         }
 
         private Specification<WorkflowDefinition> GetSpecification(string? ids, VersionOptions version)

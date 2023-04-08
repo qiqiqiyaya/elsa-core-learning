@@ -73,3 +73,8 @@ src/designer/elsa-workflows-studio/loader
 # Created by developers using GNU/Linux
 .directory
 launchSettings.json
+/src/samples/aspnet/Elsa.Samples.BatchExport/WorkFlow/e197dc20-d0e4-4d3e-b988-4893dce2cdb6/visual-document-approval-workflow.json
+/src/samples/aspnet/Elsa.Samples.BatchExport/WorkFlow/e197dc20-d0e4-4d3e-b988-4893dce2cdb6/hello-world.json
+/src/samples/aspnet/Elsa.Samples.BatchExport/elsa.sqlite.db-wal
+/src/samples/aspnet/Elsa.Samples.BatchExport/elsa.sqlite.db-shm
+/src/samples/aspnet/Elsa.Samples.BatchExport/elsa.sqlite.db

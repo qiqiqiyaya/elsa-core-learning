@@ -34,8 +34,8 @@ app.UseRouting();
 app.MapGet("/test", async context =>
 {
     var service = context.RequestServices.GetRequiredService<BatchExportFileService>();
-    await service.ExportAllAsync();
-});
+    await service.ExportAllAsync(context);
+}); 
 
 app.Run();
 
@@ -47,7 +47,7 @@ async Task AddData(IServiceProvider provider)
     {
         var scopeProvider = scope.ServiceProvider;
         var store = scopeProvider.GetRequiredService<IWorkflowDefinitionStore>();
-        var specification = new ManyWorkflowDefinitionVersionIdsSpecification(new List<string>() { VersionOptions.Latest.ToString() });
+        var specification = new VersionOptionsSpecification(VersionOptions.Draft);
         var count = await store.CountAsync(specification);
 
         if (count == 0)
