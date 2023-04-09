@@ -1,12 +1,27 @@
 {
-  "profiles": {
-    "Elsa.Server.Host": {
-      "commandName": "Project",
-      "launchUrl": "https://localhost:11000/swagger",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "applicationUrl": "https://localhost:11000"
+    "iisSettings": {
+        "windowsAuthentication": false,
+        "anonymousAuthentication": true,
+        "iisExpress": {
+            "applicationUrl": "http://localhost:11000"
+        }
+    },
+    "profiles": {
+        "IIS Express": {
+            "commandName": "IISExpress",
+            "launchBrowser": true,
+            "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "applicationUrl": "http://localhost:11000"
+        },
+        "Elsa.Server.Host": {
+            "commandName": "Project",
+            "launchUrl": "https://localhost:11000/swagger",
+            "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "applicationUrl": "http://localhost:11000"
+        }
     }
-  }
 }
